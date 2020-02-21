@@ -8,23 +8,11 @@ class Line:
         self.begin_coords = begin_coords
         self.coords = begin_coords
         self.direct = True
+        self.angle = 180
 
     def animate(self):
-        acel_x = 70
-        now = self.coords - self.begin_coords
-
-        if now >= 70:
-            self.direct = False
-            now = 70
-
-        elif now <= 0:
-            self.direct = True
-            now = 1
-        #вычислени
-        if self.direct:
-            acel_x = sin(radians(now * self.speed))
-        else:
-            acel_x = -sin(radians(now * self.speed))
+        self.angle += self.speed
+        acel_x = -sin(radians(self.angle))*0.6*self.speed
 
         self.coords +=  acel_x
         return acel_x
@@ -60,7 +48,7 @@ class MainFrame:
         self.create_field()
 
     def create_field(self):
-        for i in range(3):
+        for i in range(1):
             step = i*80 + 80
 
             cer_x = self.canvas.create_arc(1, 1, 70, 70, 
@@ -81,7 +69,7 @@ class MainFrame:
                                       )
             self.move_obj(cer_y, 0, step)
 
-        for i in range(3):
+        for i in range(1):
             step =  i*80 + 80
             line = Line(i + 1, step)
             self.lines.append(line)
@@ -103,13 +91,13 @@ class MainFrame:
         for i in range(1000):
             self.animate()
             self.root.update()
-            sleep(0.016)
+            sleep(0.01)
 
     def move_obj(self, obj,x=0,y=0):
         self.canvas.move(obj, x, y)
 
     def animate(self):
-        for i in range(3):
+        for i in range(1):
             plus = self.lines[i].animate()
             self.move_obj(self.canv_lines_x[i], plus, 0)
             self.move_obj(self.canv_lines_y[i], 0, plus)
