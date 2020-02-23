@@ -11,7 +11,6 @@ from tkinter import *
 from random import randint
 from math import radians, acos, cos, sin, sqrt, degrees
 from time import sleep
-# import time
 
 class MainFrame:
     def __init__(self, root):
@@ -79,7 +78,6 @@ class MainFrame:
             array.append(angele)
 
             self.root.update()
-        # print(sort(array))
 
         print(degrees(min(array)))
 
@@ -90,11 +88,6 @@ class MainFrame:
         sleep(1)
 
         con = self.dots_coords[array.index(min(array))]
-
-        # if con == self.endl:
-        #     print(0)
-        #     self.create_line(self.endl, self.first)
-        # else:
 
         self.create_line(nod, con)
         self.one(con, degrees(min(array)))
