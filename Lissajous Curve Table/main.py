@@ -5,7 +5,7 @@
     date: 21.02.2020
 
 '''
-__version__ = 1.2
+__version__ = "1.2"
 
 from tkinter import *
 from time import sleep
