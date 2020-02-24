@@ -33,4 +33,4 @@ def diir(a,f,t):
         else:
             ff.write(f +"\\"+ t + "\\" + i+"\n")
 
-# diir(3,"C:","")
+diir(3,"C:","")

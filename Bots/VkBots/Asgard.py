@@ -34,7 +34,7 @@ class Bot:
     ''' Vk Bot '''
     def __init__(self):
         '''bot builder'''
-        self.vkApi = "25334f3505fc41a73c16142517d7f126167a4b71a8c95aa8bc91b626dcda9da9df48809a7c4629e5e394f"
+        self.vkApi = "xxxxxxxxxxxxxxxxxxxxx"
 
         self.vk = vk_api.VkApi(token=self.vkApi)
         self.vk._auth_token()
@@ -146,7 +146,7 @@ class Bot:
                 self.__send_message("нет такого файла")
         #-----------------------------------------------------
         elif name == "newfile":
-            zagat1 = 'from vk_api import VkApi\nfrom random import randint\nvkApi = "25334f3505fc41a73c16142517d7f126167a4b71a8c95aa8bc91b626dcda9da9df48809a7c4629e5e394f"\nvk = VkApi(token=vkApi)\nvk._auth_token()\n'
+            zagat1 = 'from vk_api import VkApi\nfrom random import randint\nvkApi = "xxxxxxxxxxxxxxxxxxxxx"\nvk = VkApi(token=vkApi)\nvk._auth_token()\n'
             zagat2 = 'def prin(a):\n\tvk.method("messages.send", {"peer_id": 463988739, "message": str(a), "random_id": randint(1, 2147483647)})\n'
 
             f = open(name, 'tw', encoding='utf-8')
@@ -205,8 +205,8 @@ class Bot:
         url = 'https://login.dnevnik.ru/login/esia/nnov'
         
         data = {
-            'login':        'silkingeorgii',
-            'password':    '301134grafstor',
+            'login':        'your',
+            'password':    'your',
         }
 
         page_main = session.post(url, data=data)

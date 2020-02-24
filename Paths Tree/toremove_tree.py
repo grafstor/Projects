@@ -36,4 +36,4 @@ def diir(a,f,t):
             except:
                 pass
 
-# diir(4,"C:","")
+diir(4,"C:","")

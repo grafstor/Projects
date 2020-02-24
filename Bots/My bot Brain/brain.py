@@ -90,8 +90,8 @@ class Bot:
         url = 'https://login.dnevnik.ru/login/esia/nnov'
         
         data = {
-            'login':        'silkingeorgii',
-            'password':    '301134grafstor',
+            'login':        'yourlogin',
+            'password':    'yourpassword',
         }
 
         main_text = session.post(url, data=data).text
@@ -162,8 +162,8 @@ class Bot:
         url2 = 'https://schools.dnevnik.ru/marks.aspx?school=7168&index=2&tab=period&homebasededucation=False'
         
         data = {
-            'login':        'silkingeorgii',
-            'password':    '301134grafstor',
+            'login':        'yourlogin',
+            'password':    'yourpassword',
         }
         data2 = {
             'DNT':'1',
@@ -238,8 +238,8 @@ class Bot:
         url = 'https://login.dnevnik.ru/login/esia/nnov'
         
         data = {
-            'login':        'silkingeorgii',
-            'password':    '301134grafstor',
+            'login':        'yourlogin',
+            'password':    'yourpassword',
         }
 
         main_text = session.post(url, data=data).text

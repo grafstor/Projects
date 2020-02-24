@@ -13,7 +13,7 @@ import time
 Asgard = Bot()
 
 def test1():
-    print(Asgard.filemanager("allfiles D:\\projects\\bots\\norm"))
+    print(Asgard.filemanager("allfiles"))
     print('------------------------------------------')
     print(Asgard.home_work())
     print('------------------------------------------')
