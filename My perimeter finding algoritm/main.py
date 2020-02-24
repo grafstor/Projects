@@ -4,7 +4,8 @@
     author: grafstor
     date: 22.02.2020
 '''
-__version__ = 1
+
+__version__ = "1.0"
 
 from tkinter import *
 from random import randint
