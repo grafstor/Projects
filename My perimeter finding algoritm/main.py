@@ -35,7 +35,7 @@ class MainFrame:
 
         self.dots_coords = []
 
-        self.dot_num = 300
+        self.dot_num = 30
 
         self.main_a = 0
         self.main_b = 0
