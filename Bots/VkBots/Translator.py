@@ -12,13 +12,13 @@ import time
 import random
 import requests
 
-token = "2b4801844d6d4f1ce3df1dcc2159c7627604f698995ba4a591a1ddf921c827bb0801d6a1d80a582c52c8f"
+token = "yourfackingtoken"
 vk = vk_api.VkApi(token=token)
 
 a = ''
 
 URL = "https://translate.yandex.net/api/v1.5/tr.json/translate"  #это адрес для обращения к API 
-KEY = "trnsl.1.1.20191029T172108Z.4b8a3759a478f522.8c9da464e32acd3a22edb0a277ce0c15d352450d" #Это ваш API ключ 
+KEY = "trnsl.1.1.hui" #Это ваш API ключ 
 
 def translate_me(mytext):
     params = {"key": KEY, "text": mytext, "lang": aa}
