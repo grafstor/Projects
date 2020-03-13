@@ -66,8 +66,7 @@ class MainFrame:
         self.create_dot(nx-3, ny-3, self.red_color)
         array = []
 
-        for ind in range(len(self.dots_coords)):
-            x,y = self.dots_coords[ind]
+        for x,y in self.dots_coords:
             bx, by = (x - nx, -(y - ny))
 
             txy = ax*bx + ay*by
@@ -81,16 +80,17 @@ class MainFrame:
 
         print(degrees(min(array)))
 
-        if len(self.dots_coords) == self.dot_num -1:
-            self.endl = self.dots_coords[array.index(max(array))]
-            self.create_dot(self.endl[0], self.endl[1], self.red_color)
+        # if len(self.dots_coords) == self.dot_num -1:
+        #     self.endl = self.dots_coords[array.index(max(array))]
+        #     self.create_dot(self.endl[0], self.endl[1], self.red_color)
 
         sleep(1)
 
         con = self.dots_coords[array.index(min(array))]
 
         self.create_line(nod, con)
-        self.one(con, degrees(min(array)))
+        self.one(con, 0)
+        # self.one(con, degrees(min(array)))
 
     def find_top(self):
         x_list = []
