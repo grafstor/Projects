@@ -14,36 +14,25 @@ from PIL import Image
 import time 
 import counter
 
-def f_mel(imgx=100,imgy=100):
-    sdvig_x = -0.28
-    sdvig_y = .008
+def fractal_mndb(size=(100, 100), deep=1, offsets=(0.5,0)):
 
-    xa = -1.0 / pui**(0.9*pui) - sdvig_x
-    xb = 1.0 / pui**(0.9*pui) - sdvig_x
-    ya = -1.0 / pui**(0.9*pui) - sdvig_y
-    yb = 1.0 / pui**(0.9*pui) - sdvig_y
+    pixels = counter.count(size[0], size[1], offsets[0], offsets[1], deep)
 
-    maxIt =  100 + (pui*(pui**2))
-    
-    xui = 455 / maxIt
+    img = Image.fromarray(pixels, 'RGB')
+    img.save("photo_deep-{0}.png".format(deep),"PNG")
 
-    img = Image.new("RGB", (imgx, imgy))
-    pixels = img.load() 
-    rep = 0
+def main():
+    deep = 1
+    offsets = (-0.28, .008)
 
-    pixels_vol = counter.count(imgy, imgx, ya, yb, xa, xb, maxIt, rep)
-
-    for y in range(imgy):
-        for x in range(imgx): 
-            pixels[x, y] = (round(int(pixels_vol[x, y])*0.6),
-                            round(int(pixels_vol[x, y])*0.8),
-                            round(int(pixels_vol[x, y])*0.9))
-
-    img.save("photo_{0}.png".format(pui),"PNG")
-
-for pui in range(5,6):
-    print("Number "+ str(pui))
+    print("Deep "+ str(deep))
 
     main_time = time.time()
-    f_mel(1000,1000)
+
+    fractal_mndb((1500, 1500), deep)
+
     print(time.time() - main_time)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,16 +1,27 @@
-import numpy as np
+from numpy import zeros, array, uint8
 
-def count(int imgy, int imgx, float ya, float yb,  float xa,  float xb, int maxIt, int rep):
-    cdef int y, x, i
-    cdef float zx, zy
+def count(int size_x, int size_y, float offset_x, float offset_y, int deep):
+    cdef int y, x, i, maxIt, rep
+    cdef float zx, zy, ya, yb, xa, xb
     cdef complex z, c
 
-    cdef pixels = np.zeros([imgx, imgy])
+    rep = 0
 
-    for y in range(imgy):
-        zy = y * (yb - ya) / (imgy - 1)  + ya 
-        for x in range(imgx): 
-            zx = x * (xb - xa) / (imgx - 1)  + xa
+    xa = -1.0 / deep**(0.9*deep) - offset_x
+    xb = 1.0 / deep**(0.9*deep) - offset_x
+    ya = -1.0 / deep**(0.9*deep) - offset_y
+    yb = 1.0 / deep**(0.9*deep) - offset_y
+
+    maxIt =  100 + (deep*(deep**2))
+
+    xui = 455 / maxIt
+
+    cdef pixels = zeros([size_x, size_y, 3], dtype=uint8)
+
+    for y in range(size_y):
+        zy = y * (yb - ya) / (size_y - 1)  + ya 
+        for x in range(size_x):
+            zx = x * (xb - xa) / (size_x - 1)  + xa
 
             z = zx + zy * 1j
             c = z
@@ -21,14 +32,16 @@ def count(int imgy, int imgx, float ya, float yb,  float xa,  float xb, int maxI
                 z = z * z + c 
 
             if i == maxIt-1:
-                pixels[x, y] = 0
+                pixels[y, x] = [0, 0, 0]
+
             else:
                 if i%255 == 0:
                     rep+=1
 
                 if rep%2:
-                    pixels[x, y] = 255 - i%255
+                    pixels[y, x] = [(255-i%255)*0.6, (255-i%255)*0.8, (255-i%255)*0.9]
+
                 else:
-                    pixels[x, y] = i%255
+                    pixels[y, x] = [(i%255)*0.6, (i%255)*0.8, (i%255)*0.9]
                                   
     return pixels
