@@ -14,9 +14,12 @@ import time
 
 ff = open("path.txt","w",encoding='utf-8')
 
-acceptable_extention = ['.js']
+acceptable_extention = ['.js', '.py', '.html', '.css']
 
-strings_sum = 0
+strings_sum = {}
+
+for e in acceptable_extention:
+    strings_sum[e] = 0
 
 def diir(path):
     global strings_sum
@@ -48,7 +51,7 @@ def diir(path):
                     if data:
                         for string in data.split('\n'):
                             if string:
-                                strings_sum += 1
+                                strings_sum[extention] += 1
 
                 ff.write(path_to_file+"\n")
                 break
